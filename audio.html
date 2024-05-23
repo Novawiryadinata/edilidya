@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Music</title>
+</head>
+<body>
+    <audio id="background-music" src="Ed Sheeran - Perfect.mp3" autoplay loop></audio>
+
+    <script>
+        var audio = document.getElementById('background-music');
+        
+        // Check if there's a stored time
+        var storedTime = sessionStorage.getItem('audioTime');
+        if (storedTime) {
+            audio.currentTime = storedTime;
+        }
+        
+        // Save the current time on page unload
+        window.addEventListener('beforeunload', function () {
+            sessionStorage.setItem('audioTime', audio.currentTime);
+        });
+
+        // Autoplay workaround for browsers that require user interaction
+        document.body.addEventListener('click', function () {
+            if (audio.paused) {
+                audio.play();
+            }
+        });
+    </script>
+</body>
+</html>
