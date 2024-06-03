@@ -1,8 +1,8 @@
 {
     "rewrites": [
         {
-            "source": "/services",
-            "destination": "/services.html"
+            "source": "/afternoon",
+            "destination": "/afternoon.html"
         },
         {
             "source": "/:path",
